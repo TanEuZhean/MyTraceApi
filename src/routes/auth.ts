@@ -11,7 +11,7 @@ router.post(
 			const token = await signIn({ ic, password });
 			// 1 hr expire
 			res.cookie("token", token, { httpOnly: true, maxAge: 12960000 });
-			return res.send({"message": "Success"});
+			return res.send("Success");
 		} catch (err) {
 			next(err);
 		}
@@ -26,7 +26,7 @@ router.post(
 
 			const { ic, name, password, phone } = req.body;
 			await signUp({ ic, name, password, phone });
-			return res.send({"message": "Success"});
+			return res.send({"Success"});
 		} catch (err) {
 			next(err);
 		}
